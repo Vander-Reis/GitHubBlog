@@ -25,6 +25,7 @@ export const CardContent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin-top: 8px;
+  width: 100%;
 
   .profile {
     display: flex;
