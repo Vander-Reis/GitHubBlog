@@ -1,20 +1,30 @@
 import { CardsContainer } from './styles'
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 
 interface CardsProps {
-  title: string
-  createdAt: string
-  description: string
+  post: {
+    title: string
+    body: string
+    created_at: string
+    number: number
+  }
 }
 
-export function Cards({ title, createdAt, description }: CardsProps) {
+export function Cards({ post }: CardsProps) {
   return (
     <CardsContainer>
       <div>
-        <h2>{title}</h2>
-        <span>{createdAt}</span>
+        <h2>{post.title}</h2>
+        <span>
+          {formatDistanceToNow(new Date(post.created_at), {
+            addSuffix: true,
+            locale: ptBR,
+          })}
+        </span>
       </div>
 
-      <p>{description}</p>
+      <p>{post.body}</p>
     </CardsContainer>
   )
 }

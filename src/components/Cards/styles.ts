@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
-export const CardsContainer = styled.div`
+export const CardsContainer = styled.button`
   width: 416px;
   height: 260px;
   background: ${(props) => props.theme['blue-800']};
   border-radius: 10px;
   padding: 32px;
+  cursor: pointer;
   /* margin-bottom: 32px; */
 
   div {
@@ -28,6 +29,7 @@ export const CardsContainer = styled.div`
       font-weight: 400;
       font-size: 14px;
       line-height: 160%;
+      width: fit-content;
       color: ${(props) => props.theme['blue-500']};
     }
   }
