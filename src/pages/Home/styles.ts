@@ -10,4 +10,5 @@ export const CardContainerGrid = styled.div`
   grid-template-columns: repeat(2, 1fr);
   margin-top: 48px;
   gap: 32px;
+  margin-bottom: 32px;
 `

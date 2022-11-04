@@ -4,7 +4,7 @@ import { api } from '../../lib/axios'
 import { CardProfile } from './components/CardProfile'
 import { SearchForm } from './components/SearchForm'
 import { HomeContainer, CardContainerGrid } from './styles'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 
 interface Posts {
   total_count: number
@@ -20,7 +20,7 @@ interface Posts {
 export function Home() {
   const [posts, setPosts] = useState<Posts>({} as Posts)
 
-  async function fetchPosts(query = '') {
+  const fetchPosts = useCallback(async (query = '') => {
     const response = await api.get('search/issues', {
       params: {
         q: `${query}repo:vander-reis/GitHubBlog`,
@@ -28,11 +28,11 @@ export function Home() {
     })
 
     setPosts(response.data)
-  }
+  }, [])
 
   useEffect(() => {
     fetchPosts()
-  }, [])
+  }, [fetchPosts])
 
   return (
     <HomeContainer>

@@ -3,15 +3,17 @@ import styled from 'styled-components'
 export const CardsContainer = styled.button`
   width: 416px;
   height: 260px;
+  text-align: left;
   background: ${(props) => props.theme['blue-800']};
   border-radius: 10px;
   padding: 32px;
   cursor: pointer;
+  border: none;
   /* margin-bottom: 32px; */
 
   div {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
 
@@ -22,6 +24,7 @@ export const CardsContainer = styled.button`
       font-weight: 700;
       font-size: 20px;
       line-height: 160%;
+      color: ${(props) => props.theme.white};
     }
 
     span {

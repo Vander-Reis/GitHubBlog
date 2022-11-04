@@ -1,6 +1,6 @@
 import { CardContainer, CardImage, CardContent } from './styles'
 import { GithubLogo, Buildings, Users, ArrowSquareOut } from 'phosphor-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { api } from '../../../../lib/axios'
 
 interface UserProfile {
@@ -16,7 +16,7 @@ interface UserProfile {
 export function CardProfile() {
   const [user, setUser] = useState<UserProfile>()
 
-  async function fetchUser() {
+  const fetchUser = useCallback(async () => {
     const response = await api.get('users/vander-reis')
 
     const {
@@ -30,11 +30,11 @@ export function CardProfile() {
     } = response.data
 
     setUser({ avatar, html, name, bio, login, followers, company })
-  }
+  }, [])
 
   useEffect(() => {
     fetchUser()
-  }, [user])
+  }, [fetchUser])
 
   return (
     <CardContainer>
