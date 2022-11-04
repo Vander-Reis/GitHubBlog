@@ -16,8 +16,9 @@ export const GlobalStyle = createGlobalStyle`
             color: ${(props) => props.theme['blue-300']};
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            font-family: 'Nunito', sans-serif;
         }
         body, input, textarea, button {
-            font: 400 1rem 'Roboto', sans-serif;; 
+            font: 400 1rem 'Nunito', sans-serif;; 
         }
 `

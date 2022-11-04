@@ -13,7 +13,7 @@ export const CardsContainer = styled.button`
 
   div {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 20px;
 
